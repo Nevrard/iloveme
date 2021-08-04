@@ -1,0 +1,25 @@
+
+
+[
+
+ { 
+     "display_name": "Dashboard",
+      "route": "/",
+      "icon": "bx bxs-dashboard"
+ },
+ { 
+    "display_name": "Habits",
+    "route": "/Habits",
+     "icon": "bx bx-list-check"
+
+ },
+
+ {
+
+    "display_name": "Calendar",
+    "route": "/",
+    "icon": "bx bxs-calendar-plus"
+ 
+ }
+
+]

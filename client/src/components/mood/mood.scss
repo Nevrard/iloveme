@@ -1,0 +1,29 @@
+@import "../../global.scss";
+
+.mood {
+ background-color: rgb(255, 255, 255);
+ display: flex;
+ flex-direction:column;
+ align-items: center;
+
+
+}
+.Popup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   margin: 300px 10px;
+   img:hover{ 
+    transform:scale(1.25);
+    cursor: pointer;
+}
+
+}
+
+#smile{
+  margin: 0px 20px;
+}
+
+#sad{
+    margin: 0px 20px
+}
