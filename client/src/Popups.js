@@ -1,5 +1,4 @@
   import React from 'react'
-import './popup.scss'
 import ReactDOM from 'react-dom'
 
 

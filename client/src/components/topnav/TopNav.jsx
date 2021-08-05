@@ -3,7 +3,6 @@ import "./topnav.scss"
 import { Link, useRouteMatch } from 'react-router-dom';
 import Dropdown from '../dropdown/Dropdown'
 import notifications from '../../JsonData/notifications.json'
-
 import user_menu from '../../JsonData/user_menu.json'
 
 
@@ -53,9 +52,12 @@ const renderUserMenu =(item, index) => (
             
             )     
     
+          
+
+function TopNav() { 
 
 
-function TopNav() {
+    
     return (
         <div className='topnav'>
                 <div className="topnav__search">
@@ -73,17 +75,6 @@ function TopNav() {
                           />
                             </div>
                             {/*static notification/whn have time input live */}
-                           <div className="topnav__right-item">
-                        {/*dropdown*/}
-                        <Dropdown 
-                          icon='bx bx-bell' 
-                          badge="2"
-                          contentData={notifications}
-                          renderItems={(item, index) => renderNotification(item, index)}
-                          renderFooter={()=> <Link to='/'>View</Link>}
-                          />
-                    </div>
-                  
                    
                 </div>  
             </div>
