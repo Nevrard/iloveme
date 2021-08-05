@@ -156,6 +156,25 @@ const resolvers = {
             //throw new AuthenticationError('You need to be logged in!')
 
         },
+
+        removeHabit: async (parent, { id },context) => {
+            const habit= await Habit.findOneAndRemove(
+                {
+                _id:id
+                }
+            )
+            const userData = await User.findOne( {_id:context.user._id} ).populate('habits moods');
+            return userData
+        } ,
+        removeHabitById: async (parent, { id,userID }) => {
+            const habit= await Habit.findOneAndRemove(
+                {
+                _id:id
+                }
+            )
+            const userData = await User.findOne( {_id:userID} ).populate('habits moods');
+            return userData
+        } 
         
     }
 }
