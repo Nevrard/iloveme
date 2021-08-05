@@ -46,8 +46,8 @@ const typeDefs = gql`
 
         addMood(description:String, rating:String, id:String): User
         addMoodById(description:String, rating:String, id:String): User
-        removeHabit(habitID:String!):User
-        removeHabitById(id:String!,userID:String!):User
+        removeHabit(habitID:String!): User
+        removeHabitById(id:String!,userID:String!): User
     }
     
 `;
