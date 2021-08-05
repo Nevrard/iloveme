@@ -2,6 +2,7 @@
 
  {
      "icon": "bx-bxs-log-out",
+     "onClick":"{() => setShowModal(true)}",
      "content": "Log out"
  }
 

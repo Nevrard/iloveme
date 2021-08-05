@@ -30,6 +30,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        {/* <Navbar /> */}
         <Hub/>
      
         {/* <div className="flex-column justify-center align-center min-100-vh bg-primary">
