@@ -61,7 +61,18 @@ const resolvers = {
 
             return user;
         },
-        habitsById: async (parent, { id }) => {
+        getHabits: async  (parent, args, context) => {
+            const user = await User.findOne(
+                {
+                    _id: context.user._id
+                }
+            ).populate(
+                'habits'
+            );
+
+            return user;
+        }, 
+        getHabitsById: async (parent, { id }) => {
 
             const user = await User.findOne(
                 {
@@ -73,6 +84,7 @@ const resolvers = {
 
             return user;
         }
+
 
 
     },

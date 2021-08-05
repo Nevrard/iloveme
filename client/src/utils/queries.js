@@ -27,16 +27,26 @@ query moodByDateById($date:String, $id:String){
     moods{
       rating
     }
-  }
+  } 
 }
 `;
 
-export const QUERY_ALL_HABITS = gql`
-query habitsById($id:String){
-  habitsById(id:$id){
+export const QUERY_ALL_HABITS_BY_ID = gql`
+query getHabitsById($id:String){
+  getHabitsById(id:$id){
     habits{
       name
     }
   }
 }
 `;
+
+export const QUERY_ALL_HABITS = gql`
+query getHabits{
+  getHabits{
+    habits{
+      name
+    }
+  }
+}
+`
