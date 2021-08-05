@@ -29,4 +29,14 @@ query moodByDateById($date:String, $id:String){
     }
   }
 }
-`
+`;
+
+export const QUERY_ALL_HABITS = gql`
+query habitsById($id:String){
+  habitsById(id:$id){
+    habits{
+      name
+    }
+  }
+}
+`;

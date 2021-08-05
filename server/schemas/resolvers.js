@@ -60,7 +60,21 @@ const resolvers = {
             }
 
             return user;
+        },
+        habitsById: async (parent, { id }) => {
+
+            const user = await User.findOne(
+                {
+                    _id:id
+                }
+            ).populate(
+                'habits'
+            );
+
+            return user;
         }
+
+
     },
     Mutation: {
         login: async (parent, { email, password }) => {
