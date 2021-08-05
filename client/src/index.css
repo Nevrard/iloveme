@@ -1810,8 +1810,8 @@ input:focus {
 }
 
 .card {
-  padding: 40px;
-  margin-bottom: 101px;
+  padding: 30px;
+  margin-bottom: 0px;
   background-color: var(--main-bg);
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
@@ -1830,7 +1830,7 @@ input:focus {
 }
 
 .card > div ~ div {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .card__footer {
@@ -1840,7 +1840,7 @@ input:focus {
 
 .light-background {
   background-color: var(--main-bg-light);
-  color: #000;
+  color: rgb(167, 162, 162);
 }
 
 .dark-background {

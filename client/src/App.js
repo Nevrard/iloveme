@@ -6,6 +6,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Navbar from './components/login/Navbar';
 
 import MoodForm from './components/mood/Mood';
+import Hub from './components/main/Hub';
 // import CalendarPage from './components/calander/Calendar'
 // import Home from './components/home/Home';
 // import Dashboard from './components/habitDash/habitDashboard';
@@ -31,7 +32,7 @@ function App() {
       <Router>
 
       <Navbar />
-        <MoodForm/>
+        <Hub/>
      
         {/* <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Switch>

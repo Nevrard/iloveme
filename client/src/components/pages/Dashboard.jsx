@@ -1,10 +1,58 @@
 import React from 'react'
 import Mood from '../mood/Mood'
 import StatusCard from '../../statuscard/StatusCard'
+import Table from '../../components/table/Table'
 import statuscard from '../../JsonData/status-card-data.json'
 
 
 
+const topHabits = {
+    head: [ 
+       'name',
+         'rating',
+         'date',
+
+    ],
+    body: [
+        
+        {
+            "name": 'brush teeth',
+            'rating': '5 star',
+            'date': '0-5-2021'
+        
+        }, 
+
+        {    
+            "name": 'brush teeth',
+            'rating': '5 star',
+            'date': '0-5-2021'
+        
+        },
+        { 
+   
+            "name": 'brush teeth',
+            'rating': '5 star',
+            'date': '0-5-2021'
+        
+        }
+    ]
+
+} 
+
+const renderHabitHead = (item, index) => (
+    <ah key={index}>{item}</ah>
+    )
+
+    const renderHabitBody = (item, index) => (
+    <tr key={index}>
+    <td>{item.name}</td>
+    <td>{item.rating}</td>
+    <td>{item.date}</td>
+    <td>
+    </td>
+    </tr>
+    
+    )
 
 function Dashboard() {
     return (
@@ -37,6 +85,12 @@ function Dashboard() {
                              <h4>Top Habits</h4>
                          </div>
                           <div className ="card__body">
+                              <Table 
+                                  headData={topHabits.head} 
+                                  renderHabitHead={(item, index) => renderHabitHead(item, index)}
+                                  bodyData={topHabits.body}
+                                  renderBody={(item, index) => renderHabitBody(item,index)}
+                                  />
                               
                           </div>
                      </div>
