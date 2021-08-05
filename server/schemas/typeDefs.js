@@ -33,7 +33,8 @@ const typeDefs = gql`
         meById(_id:String): User
         moodByDate(date: String): User
         moodByDateById(date: String, id: String): User
-        habitsById(id: String): User
+        getHabits: User
+        getHabitsById(id: String): User
     }
     type Mutation {
         login(email: String!, password: String!): Auth
