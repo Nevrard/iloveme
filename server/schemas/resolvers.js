@@ -29,35 +29,24 @@ const resolvers = {
 
             throw new AuthenticationError('Not logged in');
         },
-        moodByDateById: async(parent, { date, id }) => {
+        moodByDateById: async(parent, { id }) => {
             //Get User by the provided ID
             const user = await User.findOne(
                 { 
                     _id:id 
                 }
             ).populate('moods');
-
-            //Get properly formatted date => "2021-01-20"
-            const compareDate = date.split('T')[0];
-
-            let matchFlag = false;
-
-            for (let i=0; i< user.moods.length; i++) {
-                //Convert mood in array to same format as compareDate above
-                let moodDate = user.moods[i].date.toJSON().split('T')[0];
-                
-                //If the comparison matches, filter the moods array to only include the mat
-                if(moodDate === compareDate){
-                    nums = [i];
-                    user.moods = user.moods.filter((o,i) => nums.indexOf(i) > -1);
-                    matchFlag = true;
+            
+            return user;
+        },
+        getMoods: async  (parent, args, context) => {
+            const user = await User.findOne(
+                {
+                    _id: context.user._id
                 }
-            }
-
-            if(!matchFlag){
-                user.moods[0].rating = -1;
-                user.moods.splice(1, user.moods.length-1);
-            }
+            ).populate(
+                'moods'
+            );
 
             return user;
         },
@@ -168,6 +157,25 @@ const resolvers = {
             //throw new AuthenticationError('You need to be logged in!')
 
         },
+
+        removeHabit: async (parent, { id },context) => {
+            const habit= await Habit.findOneAndRemove(
+                {
+                _id:id
+                }
+            )
+            const userData = await User.findOne( {_id:context.user._id} ).populate('habits moods');
+            return userData
+        } ,
+        removeHabitById: async (parent, { id,userID }) => {
+            const habit= await Habit.findOneAndRemove(
+                {
+                _id:id
+                }
+            )
+            const userData = await User.findOne( {_id:userID} ).populate('habits moods');
+            return userData
+        } 
         
     }
 }

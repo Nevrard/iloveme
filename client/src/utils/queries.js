@@ -22,6 +22,17 @@ export const GET_USER = gql`
 `
 
 export const QUERY_MOOD = gql`
+query getMoods {
+  getMoods {
+    moods {
+      rating
+      date
+    }
+  }
+}
+`
+
+export const QUERY_MOOD_BY_ID = gql`
 query moodByDateById($date:String, $id:String){
   moodByDateById(date:$date, id:$id){
     moods{
