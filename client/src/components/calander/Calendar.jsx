@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+
 import { useQuery } from '@apollo/client';
 
 
@@ -9,19 +9,13 @@ import 'react-calendar/dist/Calendar.css';
 import { QUERY_MOOD } from '../../utils/queries';
 
 const CalendarPage = () => {
-    const { userId } = useParams();
-    const { data } = useQuery(QUERY_MOOD, 
-        {
-            variables: 
-                {
-                    _id: userId,
-                }
-        })
+    const { data } = useQuery(QUERY_MOOD)
     
     const SetClassName = ({ date, view }) => {
-
+        if (view === 'month') {
+        let currentDateRating;
         //Get properly formatted date => "2021-01-20"
-        const compareDate = date.split('T')[0];
+        const compareDate = date.toISOString().split('T')[0];
 
         for (let i=0; i< data.getMoods.moods.length; i++) {
             //Convert mood in array to same format as compareDate above
@@ -29,22 +23,19 @@ const CalendarPage = () => {
             
             //If the comparison matches, filter the moods array to only include the mat
             if(moodDate === compareDate){
-                let nums = [i];
-                data.getMoods.moods = data.getMoods.moods.filter((o,i) => nums.indexOf(i) > -1);
+                currentDateRating = data.getMoods.moods[i].rating
             }
         }
         
-
-        if (view === 'month') {
-            if (data.rating === 'very-happy') { 
+            if (currentDateRating === 1) { 
                 return 'very-happy'
-            } else if (data.rating === 'happy') { 
+            } else if (currentDateRating === 2) { 
                 return 'happy'
-            } else if (data.rating === 'meh') { 
+            } else if (currentDateRating === 3) { 
                 return 'meh'
-            } else if (data.rating === 'sad') { 
+            } else if (currentDateRating === 4) { 
                 return 'sad'
-            } else if (data.rating === 'vary-sad') { 
+            } else if (currentDateRating === 5) { 
                 return 'very-sad'
             }
         };
