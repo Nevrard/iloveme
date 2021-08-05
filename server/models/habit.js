@@ -8,16 +8,11 @@ const habitSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-    
   },
   rating: {
     type: String,
     required: true,
-    
   },
-  
-
-
 });
 
 const Habit = model('Habit', habitSchema);
