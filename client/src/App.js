@@ -3,9 +3,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import Navbar from './components/login/Navbar';
+// import Navbar from './components/login/Navbar';
 
-import MoodForm from './components/mood/Mood';
+// import MoodForm from './components/mood/Mood';
 import Hub from './components/main/Hub';
 // import CalendarPage from './components/calander/Calendar'
 // import Home from './components/home/Home';
@@ -30,6 +30,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        {/* <Navbar /> */}
         <Hub/>
      
         {/* <div className="flex-column justify-center align-center min-100-vh bg-primary">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+
 import { useQuery } from '@apollo/client';
 
 
@@ -7,50 +7,44 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 import { QUERY_MOOD } from '../../utils/queries';
-import { QUERY_MOOD_DESCRIPTION } from '../../utils/queries';
 
 const CalendarPage = () => {
-    const { userId } = useParams();
+    const { data } = useQuery(QUERY_MOOD)
     
     const SetClassName = ({ date, view }) => {
-        const { data } = useQuery(QUERY_MOOD, 
-            {
-                variables: 
-                    {
-                        _id: userId,
-                        date
-                    }
-            })
         if (view === 'month') {
-            if (data.rating === 'very-happy') { 
+        let currentDateRating;
+        //Get properly formatted date => "2021-01-20"
+        const compareDate = date.toISOString().split('T')[0];
+
+        for (let i=0; i< data.getMoods.moods.length; i++) {
+            //Convert mood in array to same format as compareDate above
+            let moodDate = data.getMoods.moods[i].date.toJSON().split('T')[0];
+            
+            //If the comparison matches, filter the moods array to only include the mat
+            if(moodDate === compareDate){
+                currentDateRating = data.getMoods.moods[i].rating
+            }
+        }
+        
+            if (currentDateRating === 1) { 
                 return 'very-happy'
-            } else if (data.rating === 'happy') { 
+            } else if (currentDateRating === 2) { 
                 return 'happy'
-            } else if (data.rating === 'meh') { 
+            } else if (currentDateRating === 3) { 
                 return 'meh'
-            } else if (data.rating === 'sad') { 
+            } else if (currentDateRating === 4) { 
                 return 'sad'
-            } else if (data.rating === 'vary-sad') { 
+            } else if (currentDateRating === 5) { 
                 return 'very-sad'
             }
         };
     };
 
-    const ShowDescription = ({ value, event }) => {
-        const { data } = useQuery(QUERY_MOOD_DESCRIPTION,
-            {
-                variables:
-                    {
-                        _id: userId,
-                        value
-                    }
-            })
-    }
     return (
         
         <Calendar 
             tileClassName = {SetClassName}
-            onClickDay = {ShowDescription}
         />
         
     )
