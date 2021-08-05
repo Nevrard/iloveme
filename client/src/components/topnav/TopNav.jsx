@@ -77,7 +77,7 @@ function TopNav() {
               {Auth.loggedIn() ? (
                 <>
                   
-                  <Nav.Link onClick={Auth.logout}>Your are signed in, Logout</Nav.Link>
+                  <Nav.Link onClick={Auth.logout}>You are signed in, Logout</Nav.Link>
                 </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
