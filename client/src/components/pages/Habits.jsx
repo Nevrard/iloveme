@@ -7,13 +7,15 @@ import CreateHabit from '../createhabit/Createhabit'
 
 import { QUERY_ALL_HABITS } from '../../utils/queries'
 
-import { ADD_HABIT } from '../../utils/mutations'
+import { CREATE_HABIT } from '../../utils/mutations'
 
 
 function Habits() {
     const [modal, setModal] = useState(false);
     ///array will get update with user information 
     const [habitList, setHabitList] = useState([])
+
+    const [addHabit, { error }] = useMutation(CREATE_HABIT);
 
     const { loading, data } = useQuery(QUERY_ALL_HABITS);
 
@@ -51,6 +53,16 @@ function Habits() {
         
         tempList.push(habitObj);
 
+        try {
+            addHabit({
+                variables: {
+                    name: habitObj.name,
+                    rating: "0"
+                }
+            });
+        } catch (error) {
+            console.error(error);
+        }
 
 
         setHabitList(tempList);

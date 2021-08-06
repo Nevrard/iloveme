@@ -97,11 +97,11 @@ const resolvers = {
             return { token, user };
         },
 
-        addHabit: async (parent, { name, rating}, context) => {
+        addHabit: async (parent, { name, rating }, context) => {
 
             const habit= await Habit.create({name,rating});
 
-            if (id) {
+            if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id:context.user._id },
                     { $addToSet: {habits: habit} },
