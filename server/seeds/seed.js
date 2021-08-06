@@ -57,7 +57,7 @@ const seedMoods = [];
 for (let i = 0; i < 90; i++) {
     const mood = {
         date: new Date(new Date().setDate(new Date().getDate() - i)),
-        rating: Math.floor(Math.random() * 5).toString(),
+        rating: (Math.floor(Math.random() * 5)+1).toString(),
         description: "You are the best"
     };
     seedMoods.push(mood)
@@ -74,16 +74,18 @@ const seedDatabase = async () => {
     const user = await db.User.create(seedUser);
 
     for (let i = 0; i < habits.length; i++) {
-        console.log('habit')
+     
+        console.log('habits ' + "i " + i + "id: " + habits[i]._id)
         user.habits.push(habits[i]._id);
 
     }
 
     for (let i = 0; i < moods.length; i++) {
-        console.log('mood')
+        
+        console.log("moods " + " i " + i + "id "+ moods[i]._id)
         user.moods.push(moods[i]._id)
     }
-
+    await user.save()
     console.log('all done!');
     process.exit(0);
 };
