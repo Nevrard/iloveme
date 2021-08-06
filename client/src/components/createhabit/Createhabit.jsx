@@ -22,8 +22,7 @@ const handleChange = (e) => {
 
 const savePush = () => { 
     let habitObj = {} 
-    habitObj["Name"] = habitName
-    habitObj["Description"] = description
+    habitObj["name"] = habitName
     save(habitObj)
 }
     return (
@@ -34,12 +33,6 @@ const savePush = () => {
                     <div className ="form-group">
                     <label>Habit Name</label>
                         <input type="text"  className ="form-control" value = {habitName} onChange = {handleChange} name = "habitName"/>
-                    </div>
-                    <div className="form-group">
-                    <label>Description</label>
-                      <textarea rows ="5" className = "form-control" value = {description} onChange = {handleChange} name = "description">
-
-                      </textarea>
                     </div>
                 </form>
              </ModalBody>
