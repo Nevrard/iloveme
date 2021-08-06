@@ -1,10 +1,9 @@
 import React from 'react'
-import Mood from '../mood/Mood'
 import StatusCard from '../../statuscard/StatusCard'
 import Table from '../../components/table/Table'
 import statuscard from '../../JsonData/status-card-data.json'
 
-
+import '../createhabit/card.scss'
 
 const topHabits = {
     head: [ 
@@ -74,7 +73,7 @@ function Dashboard() {
                  </div>
                  </div>     
                  <div className ="col-6">
-                     <div className="card full-height">
+                     <div className="card-wrapper">
                        {'import selected mood from database'}     
                      </div>
 

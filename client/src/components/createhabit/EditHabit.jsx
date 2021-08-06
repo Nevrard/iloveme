@@ -38,10 +38,6 @@ const EditHabit = ({modal, toggle, updateHabit, habitObj}) => {
                    <label>Habit Name</label>
                    <input type='text' className = "form-control" value = {habitName} onChange = {handleChange} name ="habitName"/>
                </div>
-               <div className="form-group">
-                   <label>Description</label>
-                   <textarea rows = "5" className ="form-control" value={description} onChange ={handleChange} name = "description"/>
-               </div>
            </ModalBody>
            <ModalFooter>
                <Button color="primary" onClick={handleUpdate}>Update</Button>{' '}

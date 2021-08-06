@@ -10,17 +10,21 @@ box-shadow: var(--box-shadow);
 }
 
 .sidebar__logo > img {
-    height: 150px;
+    padding-top: 34px;
+    height:65px;
+    padding-left: 40px;
+    
 
 }
 
 .sidebar__item {
-    padding: 0 20px;
+    padding: 0px 14px;
+    padding-top: 60px;
 
 }
 
 .sidebar__item-inner {
-    padding: 15px 25px;
+    padding: 15px 5px;
     display: flex;
     font-size: 20px;
     align-items: center;

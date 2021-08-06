@@ -10,7 +10,8 @@ import { QUERY_ALL_HABITS } from '../../utils/queries'
 import { CREATE_HABIT } from '../../utils/mutations'
 
 
-function Habits() {
+
+export function Habits() {
     const [modal, setModal] = useState(false);
     ///array will get update with user information 
     const [habitList, setHabitList] = useState([])

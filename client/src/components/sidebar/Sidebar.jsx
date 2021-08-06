@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import './sidebar.scss'
 
-import logo from '../../images/Loveicon.png'
+import logo from '../../images/iloveme_orange.jpg'
 
 import sidebar_items from '../../JsonData/sidebar_routes.json'
 
@@ -30,6 +30,7 @@ function Sidebar (props)  {
         <div className='sidebar'>
             <div className="sidebar__logo">
                 <img src={logo} alt="app-logo" />
+                <br></br>
             </div>
                {
                    sidebar_items.map((item, index) => (

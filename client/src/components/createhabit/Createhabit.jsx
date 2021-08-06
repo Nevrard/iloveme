@@ -6,7 +6,7 @@ import { Button,Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 const Createhabit = ({modal, toggle, save} )  => {
 
 const [habitName, setHabitName] = useState('');
-const [description, setDescription] = useState('')
+const [setDescription] = useState('')
 
 const handleChange = (e) => {
  
@@ -22,7 +22,7 @@ const handleChange = (e) => {
 
 const savePush = () => { 
     let habitObj = {} 
-    habitObj["name"] = habitName
+    habitObj["Name"] = habitName
     save(habitObj)
 }
     return (
