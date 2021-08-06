@@ -10,6 +10,8 @@ const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
+  console.log();
+
   return (
     <>
       <Navbar bg='primary' variant='dark' expand='lg'>
@@ -36,7 +38,7 @@ const AppNavbar = () => {
                   <Nav.Link href=''>
                     Calendar
                   </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>You are signed in {Auth.getToken} Logout</Nav.Link>
+                  <Nav.Link onClick={Auth.logout}>You are signed in {Auth.getProfile().data.username}! Logout</Nav.Link>
                   
                 </>
               ) : (
