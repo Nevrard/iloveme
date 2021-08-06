@@ -41,15 +41,13 @@ const HabitCard = ({habitObj, index, deleteHabit, updateListArray}) => {
     }
 
     return (
-        <div class = "card-wrapper mr-5">
-        <div class = "card-top" style={{"background-color": colors[index%5].primaryColor}}></div>
-        <div class = "habit-holder">
-            <span class = "card-header" style={{"background-color": colors[index%5].secondaryColor, "border-radius": "10px"}}>{habitObj.Name}</span>
-            <p className = "mt-3">{habitObj.Description}</p>
-
+        <div className = "card-wrapper mr-5">
+        <div className = "card-top" style={{"background-color": colors[index%5].primaryColor}}></div>
+        <div className = "habit-holder">
+            <span className = "card-header" style={{"background-color": colors[index%5].secondaryColor, "border-radius": "10px"}}>{habitObj.Name}</span>
             <div style={{"position": "absolute", "right" : "20px", "bottom" : "20px"}}>
-                <i class = "" style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {() => setModal(true)}></i>
-                <i class="" style = {{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {handleDelete}></i>
+                <i className="" style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {() => setModal(true)}></i>
+                <i className="" style = {{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {handleDelete}></i>
             </div>
     </div>
     <EditHabit modal = {modal} toggle = {toggle} updateHabit = {updateHabit} habitObj = {habitObj}/>
