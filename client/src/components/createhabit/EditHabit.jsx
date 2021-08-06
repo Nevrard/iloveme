@@ -3,7 +3,7 @@ import {Button, Modal, ModalHeader,ModalBody, ModalFooter} from 'reactstrap';
 
 const EditHabit = ({modal, toggle, updateHabit, habitObj}) => {
    const [habitName, setHabitName] = useState('');
-   const [rating, setRating] = useState('');
+   const [habitrating, setRating] = useState('');
 
    const handleChange = (e) => { 
        const {name, value} = e.target
@@ -25,7 +25,7 @@ const EditHabit = ({modal, toggle, updateHabit, habitObj}) => {
        e.preventDefault();
        let tempObj = {}
        tempObj['name'] = habitName
-       tempObj['rating'] = rating
+       tempObj['rating'] = habitrating
        updateHabit(tempObj)
    }
 
@@ -40,7 +40,7 @@ const EditHabit = ({modal, toggle, updateHabit, habitObj}) => {
                </div>
                <div className = "form-group">
                    <label>Rating</label>
-                   <input row = "3" className = "form-control" value = {rating} onChange = {handleChange} name ="description"/>
+                   <input row = "3" className = "form-control" value = {habitrating} onChange = {handleChange} name ="description"/>
                </div>
            </ModalBody>
            <ModalFooter>
