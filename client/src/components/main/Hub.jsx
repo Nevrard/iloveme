@@ -29,13 +29,9 @@ export default function Hub() {
        <BrowserRouter>
          <Route render = {(props) => (
              <div className='hub'>
-                 {isMobile ? (
-                     <MobileMenu />
-                 ) : (
-                 <Sidebar {...props}/>
-                 )}
+                 
                  <div className="hub__content">
-                     <TopNav/>
+                     {/* <TopNav/> */}
                      
                     <div className="hub__content_main">
                         <Routes/>
