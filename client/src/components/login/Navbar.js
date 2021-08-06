@@ -10,9 +10,11 @@ const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
+  console.log();
+
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar bg='primary' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
             Mood APP
@@ -25,9 +27,19 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>
-                    You are signed in
+                    
                   </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link href='/'>
+                    Dashboard
+                  </Nav.Link>
+                  <Nav.Link href='/Habits'>
+                    Habits
+                  </Nav.Link>
+                  <Nav.Link href=''>
+                    Calendar
+                  </Nav.Link>
+                  <Nav.Link onClick={Auth.logout}>You are signed in {Auth.getProfile().data.username}! Logout</Nav.Link>
+                  
                 </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
