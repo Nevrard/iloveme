@@ -58,7 +58,7 @@ export function Habits() {
             addHabit({
                 variables: {
                     name: habitObj.name,
-                    rating: "0"
+                    rating: "0"  
                 }
             });
         } catch (error) {

@@ -22,7 +22,7 @@ const handleChange = (e) => {
 
 const savePush = () => { 
     let habitObj = {} 
-    habitObj["Name"] = habitName
+    habitObj["name"] = habitName
     save(habitObj)
 }
     return (
