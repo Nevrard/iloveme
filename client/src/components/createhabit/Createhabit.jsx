@@ -6,7 +6,7 @@ import { Button,Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 const Createhabit = ({modal, toggle, save} )  => {
 
 const [habitName, setHabitName] = useState('');
-const [setDescription] = useState('')
+const [ rating, setRating] = useState('')
 
 const handleChange = (e) => {
  
@@ -16,25 +16,33 @@ const handleChange = (e) => {
          setHabitName(value)
 
      } else {
-         setDescription(value)
+         setRating(value)
      }
 }
 
-const savePush = () => { 
-    let habitObj = {} 
-    habitObj["Name"] = habitName
+const savePush = (e) => { 
+   e.preventDefault()
+let habitObj = {}
+ habitObj["name"] = habitName
+habitObj["rating"] = rating
     save(habitObj)
 }
     return (
             <Modal isOpen={modal} toggle={toggle} >
              <ModalHeader toggle={toggle}>Create habit</ModalHeader>
              <ModalBody>
-                <form>
                     <div className ="form-group">
                     <label>Habit Name</label>
                         <input type="text"  className ="form-control" value = {habitName} onChange = {handleChange} name = "habitName"/>
                     </div>
-                </form>
+                    <div className = "form-group">
+                        <label>
+                         Rating
+                       </label>
+                       <textarea rows = "" className = "form-control" value = {rating} onChange = {handleChange} name = "rating"></textarea>
+
+                    </div>
+        
              </ModalBody>
              <ModalFooter>
                  <Button color="primary" onClick={savePush}>Create Habit</Button>{' '}

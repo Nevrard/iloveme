@@ -72,12 +72,6 @@ function Dashboard() {
                        }
                  </div>
                  </div>     
-                 <div className ="col-6">
-                     <div className="card-wrapper">
-                       {'import selected mood from database'}     
-                     </div>
-
-                 </div>
                  <div className="col-4" >
                      <div className="card">
                          <div className="card__header">

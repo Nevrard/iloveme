@@ -1,22 +1,21 @@
 [
     {
-        "name": "dwdwdwd",
-        "rating": "555"
+        "name": "Make bed",
+        "rating": "10"
     },
     {
 
-        "name": "rrwerre",
-        "rating": "5555"
+        "name": "Brush teeth",
+        "rating": "5"
     },
     {
-        "icon": "bx bx-dollar-circle",
-        "count": "$2,632",
-        "title": "Total income"
+        "name": "eat food",
+        "rating": "5"
     },
     {
-        "icon": "bx bx-receipt",
-        "count": "1,711",
-        "title": "Total orders"
+     
+        "name": "walk dog",
+        "rating": "5"
 
     }
 ]
