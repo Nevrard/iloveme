@@ -48,8 +48,8 @@ const HabitCard = ({habitObj, index, deleteHabit, updateListArray}) => {
             <p className = "mt-3">{habitObj.Description}</p>
 
             <div style={{"position": "absolute", "right" : "20px", "bottom" : "20px"}}>
-                <i class = "" style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {() => setModal(true)}></i>
-                <i class="" style = {{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {handleDelete}></i>
+                <div class = "" style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {() => setModal(true)}></div>
+                <div class="" style = {{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {handleDelete}></div>
             </div>
     </div>
     <EditHabit modal = {modal} toggle = {toggle} updateHabit = {updateHabit} habitObj = {habitObj}/>

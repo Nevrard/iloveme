@@ -23,7 +23,7 @@
 }
 
 .status-card__info > h4 {
-    font-size: 2.5rem;
+    font-size: .5rem;
     margin-bottom: 10px;
 }
 
@@ -32,22 +32,8 @@
     width: 100%;
     padding-top: 100%;
     border-radius: 50%;
-    background-image: linear-gradient(
-        to top right,
-        var(--main-color),
-        var(--second-color)
-    );
     position: absolute;
     left: -50%;
     top: 0;
-    transform: scale(0);
-    transition: transform 0.8s ease 0s;
 }
 
-.status-card:hover::before {
-    transform: scale(3);
-}
-
-.status-card:hover {
-    color: var(--txt-white);
-}
