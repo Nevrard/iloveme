@@ -158,13 +158,13 @@ const resolvers = {
 
         },
 
-        removeHabit: async (parent, { id },context) => {
+        removeHabit: async (parent, { id }, context) => {
             const habit= await Habit.findOneAndRemove(
                 {
                 _id:id
                 }
             )
-            const userData = await User.findOne( {_id:context.user._id} ).populate('habits moods');
+            const userData = await User.findOne( { _id:context.user._id } ).populate('habits moods');
             return userData
         } ,
         removeHabitById: async (parent, { id,userID }) => {
@@ -173,7 +173,7 @@ const resolvers = {
                 _id:id
                 }
             )
-            const userData = await User.findOne( {_id:userID} ).populate('habits moods');
+            const userData = await User.findOne( { _id:userID } ).populate('habits moods');
             return userData
         } 
         
