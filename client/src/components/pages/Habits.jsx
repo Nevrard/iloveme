@@ -1,14 +1,25 @@
 import React, { useEffect, useState} from 'react';
+import { useQuery, useMutation } from '@apollo/client';
 
 import Card from '../createhabit/HabitCard'
 
 import CreateHabit from '../createhabit/Createhabit'
+
+import { QUERY_ALL_HABITS } from '../../utils/queries'
 
 
 function Habits() {
     const [modal, setModal] = useState(false);
     ///array will get update with user information 
     const [habitList, setHabitList] = useState([])
+
+    const { loading, data } = useQuery(QUERY_ALL_HABITS);
+
+    const databaseHabits = data?.getHabits.habits || [{name:"Hello World", description:'Hi There!'}];
+
+    console.log(databaseHabits);
+
+    console.log(data)
 
     useEffect(() =>  { 
         let arr = localStorage.getItem("habitList")
@@ -46,6 +57,8 @@ function Habits() {
              tempList.push(habitObj)
              setHabitList(tempList)
              setModal(false)
+
+             
     }
     return (
         <>
