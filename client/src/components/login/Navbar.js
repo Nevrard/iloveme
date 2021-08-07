@@ -42,7 +42,7 @@ const AppNavbar = () => {
                   <Nav.Link href='/calendar'>
                     <BiIcons.BiCalendarHeart /> Calendar
                   </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>You are signed in {Auth.getProfile().data.username}! Logout</Nav.Link>
+                  <Nav.Link onClick={Auth.logout}><BiIcons.BiUserCircle /> You are signed in {Auth.getProfile().data.username}! Logout</Nav.Link>
                   
                 </>
               ) : (
