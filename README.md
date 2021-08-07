@@ -29,12 +29,25 @@ Ryan O'Donohue - https://github.com/RyeBowTie
 
 1. When a user navigates to our application they are greeted with a simple landing page which options to sign up or login presented in the upper right hand corner. 
 
-2. When the user goes to login/sign up they are presented with a modal which contains both options. 
+![loggedOut](https://user-images.githubusercontent.com/74829094/128602785-424051d1-0d13-4d70-bf21-3d89de99e6dc.png)
+
+2. When the user goes to login/sign up they are presented with a modal which contains both options.
+
+![loginModule](https://user-images.githubusercontent.com/74829094/128602793-9cf01aae-4d5e-4b64-b0d7-2706feab6644.png)
 
 3. When they first login they are presented with four mood icons, which will store their mood in the database. The purpose of this layout is to make sure that the user enters a mood each time as well as to make this as seamless and easy as possible.
 
+![moodForm](https://user-images.githubusercontent.com/74829094/128602874-a4f95d3c-7e3e-4c02-929d-537f2e1e1264.png)
+
 4. When the mood has been chosen they are navigated to the dashboard which displays their current habits. 
 
-5. There are also a link in the navigation to a habits page, which will also display the user's habits but will also give them the option of adding new habits. This form is also presented as a modal  
+![dashboard](https://user-images.githubusercontent.com/74829094/128602891-2d67126f-d130-4468-b417-d85129915be5.png)
+
+5. There are also a link in the navigation to a habits page, which will also display the user's habits but will also give them the option of adding new habits. This form is also presented as a modal.
+
+![habits](https://user-images.githubusercontent.com/74829094/128602924-382a0cb5-a367-44e2-a656-82f0088e83a2.png)
 
 6. Finally there is also a calendar component which will display the mood data as colors, red for bad days and green for good. 
+
+![calendar](https://user-images.githubusercontent.com/74829094/128602969-7939373c-0045-4cf7-8852-99c07375850b.png)
+
