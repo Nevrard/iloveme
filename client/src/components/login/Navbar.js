@@ -7,12 +7,18 @@ import logo from '../../images/logo.png';
 import Auth from '../../utils/auth';
 import './Navbar.scss';
 
+import { IconContext } from 'react-icons';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import * as MdIcons from 'react-icons/md';
+import * as BiIcons from 'react-icons/bi';
+
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <Navbar bg='primary' variant='dark' expand='lg'>
+      <Navbar bg='primary' variant='dark' expand='xl'>
         <Container fluid>
           <Navbar.Brand href='/'>
           <img src={logo} alt="iLove.me Logo" className="logo"/>
@@ -28,13 +34,13 @@ const AppNavbar = () => {
                     
                   </Nav.Link>
                   <Nav.Link href='/'>
-                    Dashboard
+                  <MdIcons.MdDashboard /> Dashboard
                   </Nav.Link>
                   <Nav.Link href='/Habits'>
-                    Habits
+                    <BiIcons.BiListCheck /> Habits
                   </Nav.Link>
                   <Nav.Link href='/calendar'>
-                    Calendar
+                    <BiIcons.BiCalendarHeart /> Calendar
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>You are signed in {Auth.getProfile().data.username}! Logout</Nav.Link>
                   
