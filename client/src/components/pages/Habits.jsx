@@ -1,15 +1,15 @@
 import React, { useEffect, useMemo, useState} from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 
-import Card from '../createhabit/HabitCard'
+import Card from '../createhabit/HabitCard';
 
-import CreateHabit from '../createhabit/Createhabit'
+import CreateHabit from '../createhabit/Createhabit';
 
-import { QUERY_ALL_HABITS } from '../../utils/queries'
+import { QUERY_ALL_HABITS } from '../../utils/queries';
 
-import { CREATE_HABIT } from '../../utils/mutations'
+import { CREATE_HABIT } from '../../utils/mutations';
 
-
+import './dash.scss';
 
 export function Habits() {
     const [modal, setModal] = useState(false);
