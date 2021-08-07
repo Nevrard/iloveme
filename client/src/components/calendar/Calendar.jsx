@@ -59,14 +59,16 @@ const CalendarPage = () => {
     };
 
     return (
+        <div className="container"> 
+        <h2 className="page-header h1">Mood Calendar</h2>
         <div className= 'calendar-container'>
-            <h1>Mood Calendar</h1>
             <Calendar
                 tileClassName={SetClassName}
                 minDetail='year'
                 maxDate={new Date(new Date().setFullYear(new Date().getFullYear() + 1))}
                 minDate={new Date(new Date().setFullYear(new Date().getFullYear() - 5))}
             />
+        </div>
         </div>
     )
 };

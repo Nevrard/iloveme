@@ -70,8 +70,10 @@ export function Habits() {
     }
     return (
         <>
+        <div className="container"> 
+        <h2 className="page-header h1">Habits</h2>
+
         <div class="header text-center">
-            <h4 className = "mt-1">HABITS</h4>
             <button className = "btn btn-primary mt-2" onClick ={() => setModal(true)}>Create Habit</button>
         </div>
         <div className="habit-container"> 
@@ -80,6 +82,7 @@ export function Habits() {
         
            
 
+        </div>
         </div>
         <CreateHabit toggle = {toggle} modal= {modal}  save = {saveHabit} />
         
