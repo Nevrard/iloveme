@@ -7,15 +7,15 @@
 
 .hub__content{
     // padding-left: var(--sidebar-width);
-    margin: 10px 15px;
+    padding: 10px 15px;
     background-color: var(--second-bg);
-    min-height: 100vh;
+    height: 80vh;
 
 }
 
 .hub__content_mobile{
     background-color: var(--second-bg);
-    min-height: 100vh;
+    height: 80vh;
 
 }
 
