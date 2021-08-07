@@ -8,6 +8,8 @@ import { setContext } from '@apollo/client/link/context';
 
 import MoodForm from './components/mood/Mood';
 import Hub from './components/main/Hub';
+import Auth from './utils/auth';
+// import Footer from './components/footer/Footer'
 // import CalendarPage from './components/calander/Calendar'
 // import Home from './components/home/Home';
 // import Dashboard from './components/habitDash/habitDashboard';
@@ -41,7 +43,14 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Navbar />
-        <Hub/>
+        {Auth.loggedIn() ? (
+                <>
+                  <Hub />                  
+                </>
+              ) : (
+                <p>Log In</p>
+              )}
+        {/* <Hub/> */}
             
         {/* <div className="flex-column justify-center align-center min-100-vh bg-primary">
           <Switch>
@@ -61,6 +70,7 @@ function App() {
           </Switch>
         </div> */}
       </Router>
+      {/* <Footer /> */}
     </ApolloProvider>
   );
 }
