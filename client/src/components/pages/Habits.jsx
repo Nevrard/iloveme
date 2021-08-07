@@ -76,12 +76,12 @@ export function Habits() {
         </div>
         <div className="habit-container"> 
         {/* input card styling bellow */}
-            {habitList && habitList.map((obj, index) => <Card habitObj = {obj}  index = {index} deleteHabit = {deleteHabit}  updateListArray = {updateListArray}/>)}
+            {habitList && habitList.map((obj, index) => <Card habitObj = {obj}  index = {index} deleteHabit = {deleteHabit}  updateListArray = {updateListArray} edit={true}/>)}
         
            
 
         </div>
-        <CreateHabit toggle = {toggle} modal= {modal}  save = {saveHabit}/>
+        <CreateHabit toggle = {toggle} modal= {modal}  save = {saveHabit} />
         
        
        </>

@@ -3,7 +3,7 @@ import './card.scss'
 import EditHabit from '../createhabit/EditHabit';
 
 
-const HabitCard = ({habitObj, index, deleteHabit, updateListArray}) => {
+const HabitCard = ({habitObj, index, deleteHabit, updateListArray, edit}) => {
     const [modal, setModal] = useState(false);
     const colors = [
         {
@@ -48,9 +48,10 @@ const HabitCard = ({habitObj, index, deleteHabit, updateListArray}) => {
             <p className = "mt-3">{habitObj.rating}</p>
             <div style={{"position": "absolute", "right" : "20px", "bottom" : "20px"}}>
 
-                
-                <i className="far fa-edit mr-3" style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {() => setModal(true)}></i>
-                <i className="fas fa-trash-alt" style = {{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {handleDelete}></i>
+                {edit
+                ?<div> <i className="far fa-edit mr-3" style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {() => setModal(true)}></i> <i className="fas fa-trash-alt" style = {{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {handleDelete}></i> </div>
+                :<div></div>
+            }
             </div>
     </div>
     <EditHabit modal = {modal} toggle = {toggle} updateHabit = {updateHabit} habitObj = {habitObj}/>

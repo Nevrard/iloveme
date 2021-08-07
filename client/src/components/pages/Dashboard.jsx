@@ -12,6 +12,8 @@ import { QUERY_ALL_HABITS } from '../../utils/queries'
 
 import { CREATE_HABIT } from '../../utils/mutations'
 
+import { QUERY_MOOD } from '../../utils/queries';
+
 
 
 const topHabits = {
@@ -64,12 +66,55 @@ const renderHabitHead = (item, index) => (
 
 function Dashboard() {
     const [modal, setModal] = useState(false);
+
+    const moodResponse = useQuery(QUERY_MOOD);
+
+    const [currentMoodMessage, setCurrentMoodMessage] = useState();
+
     ///array will get update with user information 
     const [habitList, setHabitList] = useState([])
 
     const [addHabit, { error }] = useMutation(CREATE_HABIT);
 
-    const { loading, data } = useQuery(QUERY_ALL_HABITS)
+    const { loading, data } = useQuery(QUERY_ALL_HABITS);
+
+    let moodMessage = useMemo(()=> {
+        console.log(moodResponse)
+        
+        const moodDescription = moodResponse.data?.getMoods.moods[moodResponse.data.getMoods.moods.length-1].description || {description: "_"};
+
+        let message;
+
+        switch (moodDescription) {
+            case "Happy":
+                
+                message = "Oh, happy days!"
+                break;
+            case "Meh":
+                
+                message = "Sometimes, things are just okay. And that is okay!"
+                break;
+            case "Spooky":
+                
+                message = "Its okay to reach out for support. We all have bad days. Take some time to focus on yourself!"
+                break;
+            case "Angry":
+                
+                message = "Take your time. You got this!"
+                break;
+        
+            default:
+                message = "We don't know how youre feeling! We'll try harder next time."
+                break;
+        }
+        
+        return  message;
+
+    },[moodResponse])
+
+    useEffect(() => {
+        setCurrentMoodMessage(moodMessage);
+    },[moodMessage])
     
     let storedHabitsList = useMemo(() => {
         let returnedList = data?.getHabits.habits || [{name:"start", rating:''}];
@@ -119,6 +164,7 @@ function Dashboard() {
         setHabitList(tempList);
         setModal(false)    
     }
+
     return (
         <div> 
             <h2 className="page-header">Dashboard</h2>
@@ -127,7 +173,7 @@ function Dashboard() {
                  <div className="row">
                  <div className="habit-container"> 
         {/* input card styling bellow */}
-            {habitList && habitList.map((obj, index) => <Card habitObj = {obj}  index = {index} />)}
+            {habitList && habitList.map((obj, index) => <Card habitObj = {obj}  index = {index} edit = {false} />)}
         
            
 
@@ -139,16 +185,10 @@ function Dashboard() {
                  <div className="col-4" >
                      <div className="card">
                          <div className="card__header">
-                             <h4>Top Habits</h4>
+                             <h4>Your Mood Message</h4>
                          </div>
                           <div className ="card__body">
-                              <Table 
-                                  headData={topHabits.head} 
-                                  renderHabitHead={(item, index) => renderHabitHead(item, index)}
-                                  bodyData={topHabits.body}
-                                  renderBody={(item, index) => renderHabitBody(item,index)}
-                                  />
-                              
+                              <p>{moodMessage}</p>
                           </div>
                      </div>
                  </div>

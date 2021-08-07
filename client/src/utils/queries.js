@@ -27,6 +27,7 @@ query getMoods {
     moods {
       rating
       date
+      description
     }
   }
 }
