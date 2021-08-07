@@ -1808,10 +1808,8 @@ input:focus {
 
 .card {
   padding:10px;
-  margin-left:1150px;
-  margin-top: -554px;
-  width: 500px;
-  margin-bottom: 1px;
+  width: 100%;
+  margin-bottom: 75px;
   background-color: var(--main-bg);
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
@@ -1828,6 +1826,7 @@ input:focus {
 
 .card__header {
   text-transform: capitalize;
+  max-width: 100%;
 }
 
 .card > div ~ div {
@@ -1905,3 +1904,32 @@ input:focus {
   flex-direction:column;
   position: relative;
 }
+
+.custom_header{
+  margin-left: auto;
+}
+
+.custom_hub_container{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 100px;
+}
+
+.mood_message{
+  min-width: 275px;
+}
+
+@media (max-width:1100px) {
+  .custom_hub_container{
+    flex-direction: column;
+  }
+  .habit-container{
+    overflow-y: scroll;
+    margin-bottom: 10px;
+  }
+  .mood_message{
+    max-height: 225px;
+    overflow-y: scroll;
+  }
+}
+

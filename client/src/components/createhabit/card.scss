@@ -5,9 +5,8 @@
   }
   
   .habit-container{
-    height: 300px;
+    max-height: 300px;
     width: 300px;
-  
   }
   
   .card-wrapper{
@@ -16,6 +15,7 @@
  
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
   }
   
   .habit-top{
@@ -46,7 +46,6 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding : 40px 100px;
   }
 
   .save-button {

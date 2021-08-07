@@ -22,3 +22,9 @@
 .hub__content-main{
     padding: 30px;
 }
+
+@media (max-width:1030) {
+    .hub__content{
+        height: 100vh;
+    }
+}

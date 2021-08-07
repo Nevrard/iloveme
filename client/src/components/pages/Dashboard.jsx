@@ -79,7 +79,6 @@ function Dashboard() {
     const { loading, data } = useQuery(QUERY_ALL_HABITS);
 
     let moodMessage = useMemo(()=> {
-        console.log(moodResponse)
         
         const moodDescription = moodResponse.data?.getMoods.moods[moodResponse.data.getMoods.moods.length-1].description || {description: "_"};
 
@@ -118,80 +117,46 @@ function Dashboard() {
     
     let storedHabitsList = useMemo(() => {
         let returnedList = data?.getHabits.habits || [{name:"start", rating:''}];
-        return Object.values(returnedList);
+
+        returnedList = Object.values(returnedList);
+
+        if(returnedList.length > 2){
+            let length = returnedList.length;
+
+            returnedList = [returnedList[length-2], returnedList[length-1]];
+
+        }
+
+        return returnedList;
     },[data]);
 
     useEffect(() =>  { 
         setHabitList(storedHabitsList);
     },[storedHabitsList])
 
-    const deleteHabit = (index) => {
-        let tempList = habitList 
-        tempList.splice(index, 1)
-        data.setItem("habitList", JSON.stringify(habitList))
-        setHabitList(tempList)
-        window.location.reload()
-    }
-
-    const updateListArray = (obj, index) => { 
-        let tempList = habitList
-        tempList[index] = obj 
-        setHabitList(tempList)
-        window.location.reload()
-    }
-
-    const toggle = () => {
-        setModal(!modal);
-    }
-
-    const saveHabit = (habitObj) => { 
-        let tempList = [...storedHabitsList];
-        
-        tempList.push(habitObj);
-
-        try {
-            addHabit({
-                variables: {
-                    name: habitObj.name,
-                    rating: "0"  
-                }
-            });
-        } catch (error) {
-            console.error(error);
-        }
-
-
-        setHabitList(tempList);
-        setModal(false)    
-    }
-
     return (
-        <div> 
-            <h2 className="page-header">Dashboard</h2>
-            <div className="row">
-            <div className="col-6">
-                 <div className="row">
-                 <div className="habit-container"> 
-        {/* input card styling bellow */}
-            {habitList && habitList.map((obj, index) => <Card habitObj = {obj}  index = {index} edit = {false} />)}
-        
-           
-
-        </div>
-                 </div>
-                 </div>     
-              
-                 </div>
-                 <div className="col-4" >
-                     <div className="card">
-                         <div className="card__header">
-                             <h4>Your Mood Message</h4>
-                         </div>
-                          <div className ="card__body">
-                              <p>{moodMessage}</p>
-                          </div>
-                     </div>
-                 </div>
+        <div className="container"> 
+            <h2 className="page-header h1">Dashboard</h2>
+            <h2 className="h3 custom_header">Recent Habits</h2>
+            <div className="row custom_hub_container">
+                <div className="col-8">
+                    <div className="row">
+                    <div className="habit-container"> 
+                        {habitList && habitList.map((obj, index) => <Card habitObj = {obj}  index = {index} edit = {false} />)}
+                    </div>
+                    </div>
+                </div>      
+                <div className="col-4 mood_message" >
+                    <div className="card md-3 h2">
+                        <div className="card__header">
+                            <h4>Your Mood Message</h4>
+                        </div>
+                        <div className ="card-body">
+                            <p>{moodMessage}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
          </div>
         
     )
