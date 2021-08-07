@@ -6,7 +6,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@ap
 import Navbar from './components/login/Navbar';
 import { setContext } from '@apollo/client/link/context';
 
-// import MoodForm from './components/mood/Mood';
+import MoodForm from './components/mood/Mood';
 import Hub from './components/main/Hub';
 import Footer from './components/footer/Footer';
 // import CalendarPage from './components/calander/Calendar'
