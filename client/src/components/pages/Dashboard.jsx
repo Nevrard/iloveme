@@ -127,7 +127,7 @@ function Dashboard() {
                  <div className="row">
                  <div className="habit-container"> 
         {/* input card styling bellow */}
-            {habitList && habitList.map((obj, index) => <Card habitObj = {obj}  index = {index} deleteHabit = {deleteHabit}  updateListArray = {updateListArray}/>)}
+            {habitList && habitList.map((obj, index) => <Card habitObj = {obj}  index = {index} />)}
         
            
 
