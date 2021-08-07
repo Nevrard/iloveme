@@ -9,7 +9,7 @@ import { setContext } from '@apollo/client/link/context';
 import MoodForm from './components/mood/Mood';
 import Hub from './components/main/Hub';
 import Auth from './utils/auth';
-// import Footer from './components/footer/Footer'
+import Footer from './components/footer/Footer'
 // import CalendarPage from './components/calander/Calendar'
 // import Home from './components/home/Home';
 // import Dashboard from './components/habitDash/habitDashboard';
@@ -54,27 +54,8 @@ function App() {
                 <p>Keep track of your mood, and track habits you want to adapt all in one handy application.</p>
                 </div>
               )}
-        {/* <Hub/> */}
-            
-        {/* <div className="flex-column justify-center align-center min-100-vh bg-primary">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-                 <MoodForm/>
-            </Route>
-            <Route exact path="/matchup">
-              <Matchup />
-            </Route>
-            <Route exact path="/matchup/:id">
-              <Vote />
-            </Route>
-            <Route>
-              <NotFound />
-            </Route>
-          </Switch>
-        </div> */}
       </Router>
-      {/* <Footer /> */}
+      <Footer />
     </ApolloProvider>
   );
 }
