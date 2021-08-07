@@ -14,7 +14,7 @@ const AppNavbar = () => {
     <>
       <Navbar bg='primary' variant='dark' expand='lg'>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
+          <Navbar.Brand href='/'>
           <img src={logo} alt="iLove.me Logo" className="logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
