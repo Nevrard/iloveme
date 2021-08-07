@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Button,Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
-
-
+import './card.scss'
 
 const Createhabit = ({modal, toggle, save} )  => {
 
 const [habitName, setHabitName] = useState('');
-const [setDescription] = useState('')
+const [ habitrating, setRating] = useState('')
 
 const handleChange = (e) => {
  
@@ -16,30 +15,44 @@ const handleChange = (e) => {
          setHabitName(value)
 
      } else {
-         setDescription(value)
+         setRating(value)
      }
 }
 
-const savePush = () => { 
+const savePush = (e) => { 
+
+    if (!habitName) {
+        alert("Please enter a habit you want to save!");
+        return;
+    };
+
+    e.preventDefault()
     let habitObj = {} 
     habitObj["name"] = habitName
+    habitObj["rating"] = habitrating
     save(habitObj)
 }
     return (
             <Modal isOpen={modal} toggle={toggle} >
-             <ModalHeader toggle={toggle}>Create habit</ModalHeader>
+             <ModalHeader toggle={toggle}>Create A Habit</ModalHeader>
              <ModalBody>
-                <form>
                     <div className ="form-group">
                     <label>Habit Name</label>
                         <input type="text"  className ="form-control" value = {habitName} onChange = {handleChange} name = "habitName"/>
                     </div>
-                </form>
+                    <div className = "form-group">
+                        <label>
+                         Rating
+                       </label>
+                       <textarea rows = "" className = "form-control" value = {habitrating} onChange = {handleChange} name = "rating"></textarea>
+
+                    </div>
+        
              </ModalBody>
              <ModalFooter>
-                 <Button color="primary" onClick={savePush}>Create Habit</Button>{' '}
+                 <Button color="primary" onClick={savePush} class="save-button">Create Habit</Button>{' '}
                   
-                 <Button color="primary" onClick={toggle}>Cancel</Button>
+                 <Button color="primary" onClick={toggle} class="cancel-button">Cancel</Button>
              </ModalFooter>
 
             

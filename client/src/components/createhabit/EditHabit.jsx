@@ -3,7 +3,7 @@ import {Button, Modal, ModalHeader,ModalBody, ModalFooter} from 'reactstrap';
 
 const EditHabit = ({modal, toggle, updateHabit, habitObj}) => {
    const [habitName, setHabitName] = useState('');
-   const [description, setDescription] = useState('');
+   const [habitrating, setRating] = useState('');
 
    const handleChange = (e) => { 
        const {name, value} = e.target
@@ -12,20 +12,20 @@ const EditHabit = ({modal, toggle, updateHabit, habitObj}) => {
            setHabitName(value)
 
        }else{
-           setDescription(value)
+           setRating(value)
        }
    }
 
    useEffect(() => {
     setHabitName(habitObj.Name)
-    setDescription(habitObj.Description)
+    setRating(habitObj.Rating)
 },[])
 
    const handleUpdate = (e) => {
        e.preventDefault();
        let tempObj = {}
-       tempObj['Name'] = habitName
-       tempObj['Description'] = description
+       tempObj['name'] = habitName
+       tempObj['rating'] = habitrating
        updateHabit(tempObj)
    }
 
@@ -37,6 +37,10 @@ const EditHabit = ({modal, toggle, updateHabit, habitObj}) => {
                <div className = "form-group">
                    <label>Habit Name</label>
                    <input type='text' className = "form-control" value = {habitName} onChange = {handleChange} name ="habitName"/>
+               </div>
+               <div className = "form-group">
+                   <label>Rating</label>
+                   <input row = "3" className = "form-control" value = {habitrating} onChange = {handleChange} name ="description"/>
                </div>
            </ModalBody>
            <ModalFooter>
