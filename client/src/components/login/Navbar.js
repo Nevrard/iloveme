@@ -33,7 +33,7 @@ const AppNavbar = () => {
                   <Nav.Link href='/Habits'>
                     Habits
                   </Nav.Link>
-                  <Nav.Link href='/Calendar'>
+                  <Nav.Link href='/calendar'>
                     Calendar
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>You are signed in {Auth.getProfile().data.username}! Logout</Nav.Link>
