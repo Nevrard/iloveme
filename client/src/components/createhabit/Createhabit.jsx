@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button,Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
-
-
+import './card.scss'
 
 const Createhabit = ({modal, toggle, save} )  => {
 
@@ -21,6 +20,12 @@ const handleChange = (e) => {
 }
 
 const savePush = (e) => { 
+
+    if (!habitName) {
+        alert("Please enter a habit you want to save!");
+        return;
+    };
+
     e.preventDefault()
     let habitObj = {} 
     habitObj["name"] = habitName
@@ -29,7 +34,7 @@ const savePush = (e) => {
 }
     return (
             <Modal isOpen={modal} toggle={toggle} >
-             <ModalHeader toggle={toggle}>Create habit</ModalHeader>
+             <ModalHeader toggle={toggle}>Create A Habit</ModalHeader>
              <ModalBody>
                     <div className ="form-group">
                     <label>Habit Name</label>
@@ -45,9 +50,9 @@ const savePush = (e) => {
         
              </ModalBody>
              <ModalFooter>
-                 <Button color="primary" onClick={savePush}>Create Habit</Button>{' '}
+                 <Button color="primary" onClick={savePush} class="save-button">Create Habit</Button>{' '}
                   
-                 <Button color="primary" onClick={toggle}>Cancel</Button>
+                 <Button color="primary" onClick={toggle} class="cancel-button">Cancel</Button>
              </ModalFooter>
 
             

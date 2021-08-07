@@ -1787,12 +1787,6 @@ a:hover {
   color: var(--main-color);
 }
 
-button {
-  cursor: pointer;
-  border: 0;
-  outline: 0;
-  color: var(--txt-color);
-}
 
 ul {
   list-style-type: none;
@@ -1814,7 +1808,8 @@ input:focus {
 
 .card {
   padding:10px;
-  margin-left:1000px;
+  margin-left:1150px;
+  margin-top: -554px;
   width: 500px;
   margin-bottom: 1px;
   background-color: var(--main-bg);

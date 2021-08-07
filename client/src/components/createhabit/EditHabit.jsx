@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Button, Modal, ModalHeader,ModalBody, ModalFooter} from 'reactstrap';
+import './card.scss'
 
 const EditHabit = ({modal, toggle, updateHabit, habitObj}) => {
    const [habitName, setHabitName] = useState('');
@@ -44,8 +45,8 @@ const EditHabit = ({modal, toggle, updateHabit, habitObj}) => {
                </div>
            </ModalBody>
            <ModalFooter>
-               <Button color="primary" onClick={handleUpdate}>Update</Button>{' '}
-               <Button color ="primary" onClick={toggle}>Cancel</Button>
+                <Button color="primary" onClick={handleUpdate}>Update</Button>
+                <Button color ="primary" onClick={toggle}>Cancel</Button>
            </ModalFooter>
            </Modal>
    );

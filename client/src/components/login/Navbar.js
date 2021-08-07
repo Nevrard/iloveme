@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
-
+import logo from '../../images/logo.png';
 import Auth from '../../utils/auth';
+import './Navbar.scss';
 
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
-
   return (
     <>
       <Navbar bg='primary' variant='dark' expand='lg'>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            Mood APP
+          <Navbar.Brand href='/'>
+          <img src={logo} alt="iLove.me Logo" className="logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
@@ -33,10 +33,10 @@ const AppNavbar = () => {
                   <Nav.Link href='/Habits'>
                     Habits
                   </Nav.Link>
-                  <Nav.Link href=''>
+                  <Nav.Link href='/calendar'>
                     Calendar
                   </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>You are signed in {Auth.getToken} Logout</Nav.Link>
+                  <Nav.Link onClick={Auth.logout}>You are signed in {Auth.getProfile().data.username}! Logout</Nav.Link>
                   
                 </>
               ) : (
@@ -46,6 +46,7 @@ const AppNavbar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
       {/* set modal data up */}
       <Modal
         size='lg'

@@ -1,0 +1,27 @@
+.status-wrapper {
+    width:300px;
+    height: 100px;
+    flex-direction: row;
+  display: block;
+  margin: 60px auto;
+  box-shadow: 10px 5px 40px 20px darken(#a5a4a7, 5%);
+  transition: .25s;
+  
+
+}
+
+.status-top {
+  padding: 15px;
+
+    background-size:cover;
+    color:#fff;
+  }
+
+
+.status-header {
+   
+ 
+    background-size:cover;
+    color:rgb(0, 0, 0);
+  }
+
