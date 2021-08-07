@@ -43,10 +43,10 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Navbar />
-        <Hub />
-      { /**{Auth.loggedIn() ? (
+        
+      {Auth.loggedIn() ? (
                 <>
-                                    
+                <Hub />                    
                 </>
               ) : (
                 <div className="flex-column justify-center align-center min-100-vh">
@@ -54,7 +54,7 @@ function App() {
                 <p>iLove.me is your place to answer that question.</p>
                 <p>Keep track of your mood, and track habits you want to adapt all in one handy application.</p>
                 </div>
-              )} **/}
+              )}
       </Router>
       <Footer />
     </ApolloProvider>
