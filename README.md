@@ -19,7 +19,7 @@ We live in a difficult time where maintaining good mental health has become more
 # Contributors 
 
 Andrew Wing - https://github.com/wingeh
-Anthon. N - https://github.com/anthony9292
+Anthony Ndegwa - https://github.com/anthony9292
 Elmir Lekovic - https://github.com/elmirlekovic
 Evrard Ndanga - https://github.com/Nevrard
 Josh Stubbington - https://github.com/ayfor
