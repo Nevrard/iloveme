@@ -48,7 +48,11 @@ function App() {
                   <Hub />                  
                 </>
               ) : (
-                <p>Log In</p>
+                <div className="flex-column justify-center align-center min-100-vh">
+                <h2>How Are You Doing Today?</h2>
+                <p>iLove.me is your place to answer that question.</p>
+                <p>Keep track of your mood, and track habits you want to adapt all in one handy application.</p>
+                </div>
               )}
         {/* <Hub/> */}
             
