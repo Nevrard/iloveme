@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
-
+import logo from '../../images/logo.png';
 import Auth from '../../utils/auth';
+import './Navbar.scss';
 
 const AppNavbar = () => {
   // set modal display state
@@ -17,7 +18,7 @@ const AppNavbar = () => {
       <Navbar bg='primary' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-            ilove.me
+          <img src={logo} alt="iLove.me Logo" className="logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
