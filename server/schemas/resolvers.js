@@ -132,7 +132,7 @@ const resolvers = {
         addMood: async (parent, { description, rating}, context) => {
             
             const mood= await Mood.create({description,rating});
-            if (id) {
+            if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id:context.user._id },
                     { $addToSet: {moods: mood} },
