@@ -10,14 +10,11 @@ import './Navbar.scss';
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
-
-  console.log();
-
   return (
     <>
       <Navbar bg='primary' variant='dark' expand='lg'>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
+          <Navbar.Brand href='/'>
           <img src={logo} alt="iLove.me Logo" className="logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
@@ -49,6 +46,7 @@ const AppNavbar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
       {/* set modal data up */}
       <Modal
         size='lg'
