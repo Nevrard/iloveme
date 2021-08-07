@@ -1759,13 +1759,16 @@ label form [type='radio'] {
   --border-radius: 15px;
   --topnav-height: 100px;
   --transition-cubic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+
 }
 
 * {
   padding: 1;
   margin: 0;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -1811,8 +1814,9 @@ input:focus {
 
 .card {
   padding:10px;
+  margin-left:1000px;
   width: 500px;
-  margin-bottom: 0px;
+  margin-bottom: 1px;
   background-color: var(--main-bg);
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
@@ -1876,3 +1880,33 @@ input:focus {
 }
 
 
+.header{
+  height: 200px;
+  width: 100%;
+}
+.card-wrapper{
+  
+  width:470px;
+  height:200px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.card-top{
+  width:100%;
+  height:2%; 
+
+}
+
+
+.card-holder{
+  width:10%;
+  height:108%;
+  padding:10px 10px;
+  display: flex;
+  flex-direction:column;
+  position: relative;
+}

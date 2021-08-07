@@ -3,7 +3,7 @@ import StatusCard from '../../statuscard/StatusCard'
 import Table from '../../components/table/Table'
 import statuscard from '../../JsonData/status-card-data.json'
 
-import '../createhabit/card.scss'
+
 
 const topHabits = {
     head: [ 
@@ -72,6 +72,8 @@ function Dashboard() {
                        }
                  </div>
                  </div>     
+              
+                 </div>
                  <div className="col-4" >
                      <div className="card">
                          <div className="card__header">
@@ -89,7 +91,7 @@ function Dashboard() {
                      </div>
                  </div>
          </div>
-         </div>
+        
     )
 }
 

@@ -21,7 +21,7 @@ export function Habits() {
     const { loading, data } = useQuery(QUERY_ALL_HABITS);
 
     let storedHabitsList = useMemo(() => {
-        let returnedList = data?.getHabits.habits || [{name:"Hello World", description:'Hi There!'}];
+        let returnedList = data?.getHabits.habits || [{name:"start", rating:''}];
         return Object.values(returnedList);
     },[data]);
 
@@ -32,7 +32,7 @@ export function Habits() {
     const deleteHabit = (index) => {
         let tempList = habitList 
         tempList.splice(index, 1)
-        localStorage.setItem("habitList", JSON.stringify(habitList))
+        data.setItem("habitList", JSON.stringify(habitList))
         setHabitList(tempList)
         window.location.reload()
     }
@@ -40,7 +40,6 @@ export function Habits() {
     const updateListArray = (obj, index) => { 
         let tempList = habitList
         tempList[index] = obj 
-        localStorage.setItem(habitList, JSON.stringify(tempList))
         setHabitList(tempList)
         window.location.reload()
     }
@@ -79,7 +78,7 @@ export function Habits() {
         {/* input card styling bellow */}
             {habitList && habitList.map((obj, index) => <Card habitObj = {obj}  index = {index} deleteHabit = {deleteHabit}  updateListArray = {updateListArray}/>)}
         
-            {habitList.map((obj) => <li>{obj.name}</li>)}
+           
 
         </div>
         <CreateHabit toggle = {toggle} modal= {modal}  save = {saveHabit}/>
